@@ -1,7 +1,10 @@
 package Demo;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class seleniumLocater {
@@ -44,7 +47,13 @@ public class seleniumLocater {
 		String text4=driver.findElement(By.xpath("//input[@name='phone']")).getAttribute("maxlength");
 		
 		System.out.println(text4);
-		 
+		
+		
+		
+		// find elements 
+		List<WebElement> list=driver.findElements(By.xpath("//tbody//tr"));
+		
+		System.out.println(list.size()); 
 		 
 		 driver.close();
 
