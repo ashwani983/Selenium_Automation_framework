@@ -4,6 +4,8 @@ package Demo;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Send_Key {
+public class Selenium_wait {
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -19,9 +21,13 @@ public class Send_Key {
 		
 		WebDriver driver=new ChromeDriver();
 		
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
 		driver.get("http://demo.guru99.com/test/newtours/register.php");
 		
 		driver.manage().window().maximize();
+		
 		
 		//send text
 		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("Ashwani");
@@ -30,7 +36,7 @@ public class Send_Key {
 		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("ashwanig7767@gmail.com");
 		driver.findElement(By.xpath("//input[@name='address1']")).sendKeys("123, near my hometworn ,bhopal");
 		driver.findElement(By.xpath("//input[@name='state']")).sendKeys("Madhya Pradesh");
-		driver.findElement(By.xpath("//input[@name='postalCode']")).sendKeys("462030");
+		driver.findElement(By.xpath("//input[@name='postalCod']")).sendKeys("462030");
 		
 		
 		//Clear text
