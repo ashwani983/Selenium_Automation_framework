@@ -4,6 +4,7 @@ package Demo;
 
 
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -11,7 +12,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Selenium_wait {
 
@@ -20,23 +25,41 @@ public class Selenium_wait {
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		
 		WebDriver driver=new ChromeDriver();
-		
-		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(01, TimeUnit.SECONDS);
 		
 		driver.get("http://demo.guru99.com/test/newtours/register.php");
 		
 		driver.manage().window().maximize();
 		
+		//implicit wait
+		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("Ashwani");
 		
+		
+		//Explicit wait
+		//WebDriverWait wait= new WebDriverWait(driver,10);
 		//send text
+		
+		//WebElement element;
+		
+		//element=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='firstName']")));
+		
+		
+		//fluent Wait
+		
+		Wait fluientwait=new FluentWait(driver)
+				.withTimeout(20, TimeUnit.SECONDS)
+				.pollingEvery(10,TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
+		
+		
 		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("Ashwani");
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys("Kumar");
 		driver.findElement(By.xpath("//input[@name='phone']")).sendKeys("456789456");
 		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("ashwanig7767@gmail.com");
 		driver.findElement(By.xpath("//input[@name='address1']")).sendKeys("123, near my hometworn ,bhopal");
 		driver.findElement(By.xpath("//input[@name='state']")).sendKeys("Madhya Pradesh");
-		driver.findElement(By.xpath("//input[@name='postalCod']")).sendKeys("462030");
+		driver.findElement(By.xpath("//input[@name='postalCode']")).sendKeys("462030");
 		
 		
 		//Clear text
