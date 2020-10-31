@@ -4,6 +4,7 @@ package Demo;
 
 
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +26,8 @@ public class Selenium_wait {
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		
 		WebDriver driver=new ChromeDriver();
-		driver.manage().timeouts().pageLoadTimeout(01, TimeUnit.SECONDS);
+		//page load time
+		//driver.manage().timeouts().pageLoadTimeout(01, TimeUnit.SECONDS);
 		
 		driver.get("http://demo.guru99.com/test/newtours/register.php");
 		
@@ -46,14 +48,21 @@ public class Selenium_wait {
 		
 		
 		//fluent Wait
-		
-		Wait fluientwait=new FluentWait(driver)
-				.withTimeout(20, TimeUnit.SECONDS)
-				.pollingEvery(10,TimeUnit.SECONDS)
+		//https://www.guru99.com/implicit-explicit-waits-selenium.html
+		/*Wait wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(50, TimeUnit.SECONDS)
+				.pollingEvery(10, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
+	//Above code is deprecated in Selenium v3.11 and above. You need to use*/
+		
+		/*
+		 * Wait wait = new FluentWait(WebDriver driver)
+		 * .withTimeout(Duration.ofSeconds(50))
+		 * .pollingEvery(Duration.ofSeconds(SECONDS)) .ignoring(Exception.class);
+		 */
 		
 		
-		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("Ashwani");
+		driver.findElement(By.xpath("//input[@name='firstNam']")).sendKeys("Ashwani");
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys("Kumar");
 		driver.findElement(By.xpath("//input[@name='phone']")).sendKeys("456789456");
 		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("ashwanig7767@gmail.com");
