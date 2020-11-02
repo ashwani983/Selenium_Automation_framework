@@ -1,5 +1,12 @@
 package Framework;
 
+
+
+import org.junit.Assert;
+
+import org.junit.Before;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,35 +14,35 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
+
+
 import org.junit.AfterClass;
 
-public class Junit_annotation {
-
+public class asserting_tags {
 	static WebDriver driver;
-
 	@BeforeClass
 	public static void BeforeClass() {
 		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 
 		driver = new ChromeDriver();
 
-		driver.get("http://demo.guru99.com/test/newtours/");
+		driver.get("http://demo.guru99.com/test/newtours/register.php");
 
 		driver.manage().window().maximize();
 	}
-
 	@Before
-	public void Before() {
-		driver.findElement(By.linkText("REGISTER")).click();
+	public void Before() throws InterruptedException {
+		
+		//Thread.sleep(2000);
+		//driver.findElement(By.linkText("REGISTER")).click();
+		
 
 	}
 
+
 	@Test
-	public void Test1() throws InterruptedException {
+	public void test() throws InterruptedException {
+		
 		// send text
 		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("Ashwani");
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys("Kumar");
@@ -54,7 +61,7 @@ public class Junit_annotation {
 		// send Key
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@name='address1']")).sendKeys(Keys.PAGE_DOWN);
-		;
+
 		// sect radio button
 
 		// select from Drop down
@@ -67,7 +74,7 @@ public class Junit_annotation {
 		Thread.sleep(2000);
 		WebElement country = driver.findElement(By.xpath("//select[@name='country']"));
 
-		System.out.println(country.isDisplayed());
+		
 
 		// submit form
 		Thread.sleep(2000);
@@ -76,19 +83,25 @@ public class Junit_annotation {
 		driver.findElement(By.xpath("//input[@name='confirmPassword']")).sendKeys("demo123");
 
 		driver.findElement(By.xpath("//input[@name='submit']")).click();
+		
+		String expected=driver.findElement(By.xpath("//b[contains(text(),'@gmail.com')]")).getText();
 		Thread.sleep(5000);
+		
+		Assert.assertTrue(expected.contains("ashwanig7767@gmail.com"));
+		
+		
+		
 	}
 
-	
-
-	@After
-	public void After() {
-		driver.findElement(By.linkText("REGISTER")).click();
-	}
 
 	@AfterClass
 	public static void AfterClass() {
 		driver.quit();
+
+	}
+	@After
+	public void After() {
+		
 	}
 
 }

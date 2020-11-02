@@ -1,0 +1,1 @@
+java -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone-3.141.95.jar -role node -hub http://<serverIP>:4444/grid/register 
