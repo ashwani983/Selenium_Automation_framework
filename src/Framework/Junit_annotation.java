@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.AfterClass;
 
 public class Junit_annotation {

@@ -73,6 +73,7 @@ public class asserting_tags {
 		// element is display
 		Thread.sleep(2000);
 		WebElement country = driver.findElement(By.xpath("//select[@name='country']"));
+		System.out.println(country);
 
 		
 
