@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="cross broser data">
+	<parameter name="URL" value='www.google.com'></parameter>
+
+	<testname name="DataDriver_with_xml">
+		<parameter name="BrowserType" value="chrome"></parameter>
+		<class name="Demo.Selenium_demo_TestNG">
+		</class>
+	</testname>
+
+	<testname name="testcase2">
+		<parameter name="BrowserType" value="firefox"></parameter>
+		<class name="Demo.Selenium_demo_TestNG"></class>
+	</testname>
+
+
+</suite>

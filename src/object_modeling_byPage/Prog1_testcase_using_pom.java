@@ -9,18 +9,22 @@ public class Prog1_testcase_using_pom {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
 		
 		WebDriver driver=new ChromeDriver();
-		driver = new FirefoxDriver();
-		driver.get("http://newtours.demoaut.com");
+		driver = new ChromeDriver();
+		driver.get("http://demo.guru99.com/test/newtours/");
 		
 		Homepage home=new Homepage(driver);
+		
 		home.clickRegisterLink();
 		
 		RegistrationPage register=new RegistrationPage(driver);
+		
 		register.enterFirstName("Ashwani");
 		register.enterLastName("Kumar");
+		
+		driver.quit();
 		
 
 	}

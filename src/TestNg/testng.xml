@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="tests">
+  <test name="Test 1">
+    <classes>
+      <class name="Demo.Selenium_demo_TestNG.Demo1"/>
+    </classes>
+  </test> <!-- Test -->
+   <test name="Test 2">
+    <classes>
+      <class name="Demo.Selenium_demo_TestNG.NewTest2"/>
+      
+    </classes>
+    
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

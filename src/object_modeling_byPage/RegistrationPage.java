@@ -13,6 +13,7 @@ public class RegistrationPage {
 		this.driver=driver;
 		
 	}
+	
 	void enterFirstName(String s)
 	{
 		firstName=driver.findElement(By.name("firstName"));
