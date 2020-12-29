@@ -19,7 +19,9 @@ public class headless_chrome {
 		
 		// Launching the site.
 		driver.get("http://demo.guru99.com/popup.php");
+		
 		Thread.sleep(5000);
+		
 		System.out.println(driver.getTitle());
 		
 		driver.findElement(By.xpath("//a[@href='../articles_popup.php']")).click();

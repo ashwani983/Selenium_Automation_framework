@@ -19,15 +19,25 @@ public class Hub_prog {
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 		
 		
-		nodeURL="http://192.168.42.217:4444/wd/hub";
+		nodeURL="http://192.168.42.110:4444/wd/hub";
 		
 
 		DesiredCapabilities dc=DesiredCapabilities.chrome();
+		
 		dc.setBrowserName("chrome");
 		dc.setPlatform(Platform.WINDOWS);
 		
 		RemoteWebDriver driver=new RemoteWebDriver(new URL(nodeURL), dc);
-driver.get("http://demo.guru99.com/test/newtours/register.php");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		driver.get("http://demo.guru99.com/test/newtours/register.php");
 		
 		driver.manage().window().maximize();
 		
@@ -42,7 +52,7 @@ driver.get("http://demo.guru99.com/test/newtours/register.php");
 		
 		
 		//Clear text
-		driver.wait(1000);
+		//driver.wait(1000);
 		
 		driver.findElement(By.xpath("//input[@name='address1']")).clear();
 		Thread.sleep(2000);
